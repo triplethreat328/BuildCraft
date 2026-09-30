@@ -86,6 +86,9 @@ jobs:
       - name: Validate cross-version gameplay parity
         run: python scripts/validate-behavior-parity.py
 
+      - name: Validate classic 1.12 content parity
+        run: python scripts/validate-classic-1.12-content.py
+
       - name: Validate 1.21.11 parity
         run: python scripts/validate-12111-parity.py
 
