@@ -4,6 +4,7 @@ import buildcraft.lib.platform.registry.BCRegistryBinder;
 import buildcraft.lib.platform.registry.BCRegistryEntry;
 import buildcraft.lib.platform.registry.BCDeferredRegister;
 import buildcraft.lib.internal.enums.EnumEngineType;
+import buildcraft.core.block.BlockDecoration;
 import buildcraft.core.block.BlockEngine_BC8;
 import buildcraft.core.block.BlockMarkerPath;
 import buildcraft.core.block.BlockMarkerVolume;
@@ -50,6 +51,7 @@ public class BCCoreBlocks {
             .registerEngine(EnumEngineType.FE, TileEngineFE::new));
 
     public static final BCRegistryEntry<BlockSpring> SPRING = BLOCKS.register("spring", BlockSpring::new);
+    public static final BCRegistryEntry<BlockDecoration> DECORATED = BLOCKS.register("decorated", BlockDecoration::new);
     public static final BCRegistryEntry<BlockMarkerPath> MARKER_PATH = BLOCKS.register("marker_path", BlockMarkerPath::new);
     public static final BCRegistryEntry<BlockMarkerVolume> MARKER_VOLUME = BLOCKS.register("marker_volume", BlockMarkerVolume::new);
 //    public static BlockMarkerPath markerPath;
