@@ -94,7 +94,7 @@ REQUIRED = {
         'idTex("stone_item")',
         'idTex("cobblestone_item")',
         'idTex("quartz_item")',
-        'idTexPrefix("gold_item")',
+        'idTex("gold_item")',
         'idTex("sandstone_item")',
         'idTexPrefix("iron_item")',
         'idTexPrefix("diamond_item")',
@@ -131,7 +131,7 @@ REQUIRED = {
 
 REQUIRED_PATHS = [
     "source-families/legacy/src/main/resources/data/buildcraftenergy/worldgen/configured_feature/oil_configured_feature.json",
-    "source-families/legacy/src/main/resources/data/buildcraftenergy/worldgen/placed_feature/oil_placed_feature.json",
+    "source-families/legacy/src/main/resources/data/buildcraftenergy/forge/biome_modifier/add_oil.json",
     "source-shared/src/main/resources/assets/buildcraftcore/models/item/decorated/destroy.json",
     "source-shared/src/main/resources/assets/buildcraftcore/models/item/decorated/blueprint.json",
     "source-shared/src/main/resources/assets/buildcraftcore/models/item/decorated/template.json",
