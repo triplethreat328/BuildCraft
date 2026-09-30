@@ -5,9 +5,11 @@ import buildcraft.lib.platform.registry.BCRegistryEntry;
 import buildcraft.lib.platform.registry.BCDeferredRegister;
 import java.util.EnumMap;
 
+import buildcraft.lib.internal.enums.EnumDecoratedBlock;
 import buildcraft.lib.internal.enums.EnumEngineType;
 import buildcraft.lib.internal.enums.EnumSpring;
 import buildcraft.core.item.MapLocationType;
+import buildcraft.core.item.ItemBlockDecorated;
 import buildcraft.core.item.ItemFragileFluidContainer;
 import buildcraft.core.item.ItemList_BC8;
 import buildcraft.core.item.ItemMapLocation;
@@ -46,6 +48,17 @@ public class BCCoreItems {
 
     public static final EnumMap<DyeColor, ItemPaintbrush_BC8> PAINT_BRUSHS = ItemByEnum.creatItems(ItemPaintbrush_BC8::new, new Item.Properties().durability(64).tab(BCCore.BUILDCRAFT_TAB),
             DyeColor.values(), DyeColor.class, "paintbrush", ITEMS);;
+    public static final EnumMap<EnumDecoratedBlock, ItemBlockDecorated> DECORATED_ITEM_MAP = new EnumMap<>(EnumDecoratedBlock.class);
+
+    static {
+        for (EnumDecoratedBlock type : EnumDecoratedBlock.values()) {
+            ITEMS.register("decorated/" + type.getSerializedName(), () -> {
+                ItemBlockDecorated item = new ItemBlockDecorated(BCCoreBlocks.DECORATED.get(), new Item.Properties().tab(BCCore.BUILDCRAFT_TAB), type);
+                DECORATED_ITEM_MAP.put(type, item);
+                return item;
+            });
+        }
+    }
     public static final EnumMap<EnumEngineType, MultiBlockItem<EnumEngineType>> ENGINE_ITEM_MAP = new EnumMap<EnumEngineType, MultiBlockItem<EnumEngineType>>(EnumEngineType.class);
     public static final EnumMap<EnumSpring, MultiBlockItem<EnumSpring>> SPRING_ITEM_MAP = new EnumMap<EnumSpring, MultiBlockItem<EnumSpring>>(EnumSpring.class);
 
