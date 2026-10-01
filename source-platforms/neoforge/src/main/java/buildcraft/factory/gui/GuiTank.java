@@ -110,7 +110,7 @@ public class GuiTank extends GuiBC8<ContainerTank> {
         int left = (int) mainGui.rootElement.getX() + TANK_X;
         int top = (int) mainGui.rootElement.getY() + TANK_Y;
         FluidRenderer.drawFluidForGui(fluid, left, top + TANK_HEIGHT,
-            left + TANK_WIDTH, top + TANK_HEIGHT - filled, guiGraphics.pose().last());
+            left + TANK_WIDTH, top + TANK_HEIGHT - filled, guiGraphics);
         return true;
     }
 
