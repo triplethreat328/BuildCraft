@@ -27,6 +27,7 @@ import buildcraft.lib.misc.MathUtil;
 import buildcraft.lib.misc.SpriteUtil;
 import buildcraft.lib.misc.VecUtil;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -376,6 +377,15 @@ public class FluidRenderer {
     	sprite = getFluidSprite(FluidSpriteType.STILL, fluid, FluidStack.EMPTY);
         color = IClientFluidTypeExtensions.of(fluid).getTintColor();
         drawFluidForGuiInteral(startX, startY, endX, endY, matrix);
+    }
+
+    /** GuiGraphics bridge used by shared NeoForge GUI code. */
+    public static void drawFluidForGui(FluidStack fluid, double startX, double startY, double endX, double endY, GuiGraphics guiGraphics) {
+        drawFluidForGui(fluid, startX, startY, endX, endY, guiGraphics.pose().last());
+    }
+
+    public static void drawFluidForGui(Fluid fluid, double startX, double startY, double endX, double endY, GuiGraphics guiGraphics) {
+        drawFluidForGui(fluid, startX, startY, endX, endY, guiGraphics.pose().last());
     }
 
     private static void drawFluidForGuiInteral(double startX, double startY, double endX, double endY, Pose matrix) {
