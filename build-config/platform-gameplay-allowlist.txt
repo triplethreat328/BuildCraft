@@ -29,6 +29,7 @@ source-platforms/forge/src/main/java/buildcraft/energy/tile/TileEngineFE.java
 source-platforms/forge/src/main/java/buildcraft/energy/tile/TileEngineStone_BC8.java
 source-platforms/forge/src/main/java/buildcraft/factory/tile/TileAutoWorkbenchBase.java
 source-platforms/forge/src/main/java/buildcraft/factory/tile/TileChute.java
+source-platforms/forge/src/main/java/buildcraft/factory/tile/TileHopper.java
 source-platforms/forge/src/main/java/buildcraft/factory/tile/TileDistiller.java
 source-platforms/forge/src/main/java/buildcraft/factory/tile/TileDistiller_BC8.java
 source-platforms/forge/src/main/java/buildcraft/factory/tile/TileFloodGate.java
