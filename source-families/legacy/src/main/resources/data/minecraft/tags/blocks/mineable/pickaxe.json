@@ -11,6 +11,7 @@
     "buildcraftfactory:pump",
     "buildcraftfactory:tank",
     "buildcraftfactory:chute",
+    "buildcraftfactory:hopper",
     "buildcraftfactory:flood_gate",
     "buildcraftfactory:mining_well",
     "buildcraftfactory:distiller",
