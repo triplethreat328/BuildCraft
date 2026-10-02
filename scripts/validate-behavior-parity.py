@@ -592,8 +592,8 @@ def validate_resource_parity() -> None:
 
     loot = {target: loot_inventory(target) for target in TARGETS}
     baseline_ids = set(loot["1.19.2-forge"])
-    if len(baseline_ids) != 31:
-        fail(f"1.19.2-forge: expected 31 loot tables, found {len(baseline_ids)}")
+    if len(baseline_ids) != 32:
+        fail(f"1.19.2-forge: expected 32 loot tables, found {len(baseline_ids)}")
     for target in NEWER:
         if set(loot[target]) != baseline_ids:
             fail(f"{target}: loot-table ID inventory differs from 1.19.2")
@@ -1432,7 +1432,7 @@ def main() -> None:
 
     print(
         "Behavior parity OK: 2 newer targets locked to the 1.19.2 reference; "
-        "228/227 recipes, 31 loot tables and 191 advancements validated"
+        "228/227 recipes, 32 loot tables and 191 advancements validated"
     )
 
 
