@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/hopper",
+  "textures": {
+    "particle": "buildcraftfactory:blocks/hopper_block/top",
+    "top": "buildcraftfactory:blocks/hopper_block/top",
+    "side": "buildcraftfactory:blocks/hopper_block/top",
+    "inside": "buildcraftfactory:blocks/hopper_block/bottom"
+  }
+}
