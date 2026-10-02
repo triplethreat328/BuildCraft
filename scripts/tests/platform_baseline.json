@@ -14,6 +14,7 @@
           "BLOCKS:\"pump\"",
           "BLOCKS:\"tank\"",
           "BLOCKS:\"chute\"",
+          "BLOCKS:\"hopper\"",
           "BLOCKS:\"flood_gate\"",
           "BLOCKS:\"tube\"",
           "BLOCKS:\"mining_well\"",
@@ -28,12 +29,14 @@
           "BLOCK_ENTITYS:\"entity_distiller\"",
           "BLOCK_ENTITYS:\"entity_heat_exchange\"",
           "BLOCK_ENTITYS:\"entity_autoworkbench_item\"",
-          "BLOCK_ENTITYS:\"entity_chute\""
+          "BLOCK_ENTITYS:\"entity_chute\"",
+          "BLOCK_ENTITYS:\"entity_hopper\""
         ],
         "factory/BCFactoryItems.java": [
           "ITEMS:\"pump\"",
           "ITEMS:\"tank\"",
           "ITEMS:\"chute\"",
+          "ITEMS:\"hopper\"",
           "ITEMS:\"flood_gate\"",
           "ITEMS:\"mining_well\"",
           "ITEMS:\"distiller\"",
@@ -46,6 +49,7 @@
           "MENUS:\"menu.autoworkbench_item\"",
           "MENUS:\"menu.heat_exchange\"",
           "MENUS:\"menu.chute\"",
+          "MENUS:\"menu.hopper\"",
           "MENUS:\"menu.tank\""
         ],
         "energy/BCEnergyBiomeModifiers.java": [
@@ -251,6 +255,7 @@
           "BLOCKS:\"pump\"",
           "BLOCKS:\"tank\"",
           "BLOCKS:\"chute\"",
+          "BLOCKS:\"hopper\"",
           "BLOCKS:\"flood_gate\"",
           "BLOCKS:\"tube\"",
           "BLOCKS:\"mining_well\"",
@@ -265,12 +270,14 @@
           "BLOCK_ENTITYS:\"entity_distiller\"",
           "BLOCK_ENTITYS:\"entity_heat_exchange\"",
           "BLOCK_ENTITYS:\"entity_autoworkbench_item\"",
-          "BLOCK_ENTITYS:\"entity_chute\""
+          "BLOCK_ENTITYS:\"entity_chute\"",
+          "BLOCK_ENTITYS:\"entity_hopper\""
         ],
         "factory/BCFactoryItems.java": [
           "ITEMS:\"pump\"",
           "ITEMS:\"tank\"",
           "ITEMS:\"chute\"",
+          "ITEMS:\"hopper\"",
           "ITEMS:\"flood_gate\"",
           "ITEMS:\"mining_well\"",
           "ITEMS:\"distiller\"",
@@ -283,6 +290,7 @@
           "MENUS:\"menu.autoworkbench_item\"",
           "MENUS:\"menu.heat_exchange\"",
           "MENUS:\"menu.chute\"",
+          "MENUS:\"menu.hopper\"",
           "MENUS:\"menu.tank\""
         ],
         "energy/BCEnergyBiomeModifiers.java": [
@@ -500,6 +508,7 @@
           "BLOCKS:\"pump\"",
           "BLOCKS:\"tank\"",
           "BLOCKS:\"chute\"",
+          "BLOCKS:\"hopper\"",
           "BLOCKS:\"flood_gate\"",
           "BLOCKS:\"tube\"",
           "BLOCKS:\"mining_well\"",
@@ -514,12 +523,14 @@
           "BLOCK_ENTITYS:\"entity_distiller\"",
           "BLOCK_ENTITYS:\"entity_heat_exchange\"",
           "BLOCK_ENTITYS:\"entity_autoworkbench_item\"",
-          "BLOCK_ENTITYS:\"entity_chute\""
+          "BLOCK_ENTITYS:\"entity_chute\"",
+          "BLOCK_ENTITYS:\"entity_hopper\""
         ],
         "factory/BCFactoryItems.java": [
           "ITEMS:\"pump\"",
           "ITEMS:\"tank\"",
           "ITEMS:\"chute\"",
+          "ITEMS:\"hopper\"",
           "ITEMS:\"flood_gate\"",
           "ITEMS:\"mining_well\"",
           "ITEMS:\"distiller\"",
@@ -532,6 +543,7 @@
           "MENUS:\"menu.autoworkbench_item\"",
           "MENUS:\"menu.heat_exchange\"",
           "MENUS:\"menu.chute\"",
+          "MENUS:\"menu.hopper\"",
           "MENUS:\"menu.tank\""
         ],
         "energy/BCEnergyBiomeModifiers.java": [
@@ -750,6 +762,7 @@
           "BLOCKS:\"pump\"",
           "BLOCKS:\"tank\"",
           "BLOCKS:\"chute\"",
+          "BLOCKS:\"hopper\"",
           "BLOCKS:\"flood_gate\"",
           "BLOCKS:\"tube\"",
           "BLOCKS:\"mining_well\"",
@@ -764,12 +777,14 @@
           "BLOCK_ENTITYS:\"entity_distiller\"",
           "BLOCK_ENTITYS:\"entity_heat_exchange\"",
           "BLOCK_ENTITYS:\"entity_autoworkbench_item\"",
-          "BLOCK_ENTITYS:\"entity_chute\""
+          "BLOCK_ENTITYS:\"entity_chute\"",
+          "BLOCK_ENTITYS:\"entity_hopper\""
         ],
         "factory/BCFactoryItems.java": [
           "ITEMS:\"pump\"",
           "ITEMS:\"tank\"",
           "ITEMS:\"chute\"",
+          "ITEMS:\"hopper\"",
           "ITEMS:\"flood_gate\"",
           "ITEMS:\"mining_well\"",
           "ITEMS:\"distiller\"",
@@ -782,6 +797,7 @@
           "MENUS:\"menu.autoworkbench_item\"",
           "MENUS:\"menu.heat_exchange\"",
           "MENUS:\"menu.chute\"",
+          "MENUS:\"menu.hopper\"",
           "MENUS:\"menu.tank\""
         ],
         "energy/BCEnergyBiomeModifiers.java": [
