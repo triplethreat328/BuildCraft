@@ -20,6 +20,8 @@ public class BCFactoryItems {
         () -> new BlockItem(BCFactoryBlocks.TANK_BLOCK.get(), new Item.Properties()));
     public static final BCRegistryEntry<BlockItem> CHUTE_BLOCK_ITEM = ITEMS.register("chute",
         () -> new BlockItem(BCFactoryBlocks.CHUTE_BLOCK.get(), new Item.Properties()));
+    public static final BCRegistryEntry<BlockItem> HOPPER_BLOCK_ITEM = ITEMS.register("hopper",
+        () -> new BlockItem(BCFactoryBlocks.HOPPER_BLOCK.get(), new Item.Properties()));
     public static final BCRegistryEntry<BlockItem> FLOOD_GATE_BLOCK_ITEM = ITEMS.register("flood_gate",
         () -> new BlockItem(BCFactoryBlocks.FLOOD_GATE_BLOCK.get(), new Item.Properties()));
     public static final BCRegistryEntry<BlockItem> MINING_WELL_BLOCK_ITEM = ITEMS.register("mining_well",
@@ -46,6 +48,7 @@ public class BCFactoryItems {
         add(items, PUMP_BLOCK_ITEM);
         add(items, TANK_BLOCK_ITEM);
         add(items, CHUTE_BLOCK_ITEM);
+        add(items, HOPPER_BLOCK_ITEM);
         add(items, FLOOD_GATE_BLOCK_ITEM);
         add(items, MINING_WELL_BLOCK_ITEM);
         add(items, DISTILLER_BLOCK_ITEM);
