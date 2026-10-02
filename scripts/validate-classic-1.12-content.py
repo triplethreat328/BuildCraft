@@ -45,6 +45,7 @@ REQUIRED = {
         'register("pump"',
         'register("tank"',
         'register("chute"',
+        'register("hopper"',
         'register("flood_gate"',
         'register("tube"',
         'register("mining_well"',
@@ -52,6 +53,7 @@ REQUIRED = {
         'register("heat_exchange"',
         'register("water_gel"',
         'register("autoworkbench_item"',
+        'register("entity_hopper"',
     ],
     "source-shared/src/main/java/buildcraft/silicon/BCSiliconBlocks.java": [
         'register("laser"',
@@ -138,6 +140,7 @@ REQUIRED_PATHS = [
     "source-shared/src/main/resources/assets/buildcraftcore/models/item/decorated/paper.json",
     "source-shared/src/main/resources/assets/buildcraftcore/models/item/decorated/leather.json",
     "source-shared/src/main/resources/assets/buildcraftcore/models/item/decorated/laser_back.json",
+    "source-shared/src/main/resources/assets/buildcraftfactory/models/block/hopper.json",
 ]
 
 errors = []
