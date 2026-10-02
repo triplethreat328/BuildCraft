@@ -146,6 +146,7 @@
   "block.builderBlock": "Builder",
   "block.chargingTableBlock": "Charging Table",
   "block.chuteBlock": "Chute",
+  "block.buildcraftfactory.hopper": "Hopper",
   "block.constructionMarkerBlock": "Construction Marker",
   "block.decorated.blueprint": "Blueprint",
   "block.decorated.laser_back": "Laser Back",
