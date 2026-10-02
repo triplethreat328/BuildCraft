@@ -116,6 +116,7 @@
         "BCFactoryGuis.MENU_AUTOWORK_BENCH_ITEM.get(),GuiAutoCraftItems::new",
         "BCFactoryGuis.MENU_HEAT_EXCHANGE.get(),ScreenHeatExchange::new",
         "BCFactoryGuis.MENU_CHUTE.get(),GuiChute::new",
+        "BCFactoryGuis.MENU_HOPPER.get(),GuiHopper::new",
         "BCFactoryGuis.MENU_TANK.get(),GuiTank::new"
       ],
       "robotics/BCRoboticsClientGuis.java": [
@@ -269,6 +270,7 @@
         "BCFactoryGuis.MENU_AUTOWORK_BENCH_ITEM.get(),GuiAutoCraftItems::new",
         "BCFactoryGuis.MENU_HEAT_EXCHANGE.get(),ScreenHeatExchange::new",
         "BCFactoryGuis.MENU_CHUTE.get(),GuiChute::new",
+        "BCFactoryGuis.MENU_HOPPER.get(),GuiHopper::new",
         "BCFactoryGuis.MENU_TANK.get(),GuiTank::new"
       ],
       "robotics/BCRoboticsClientGuis.java": [
@@ -422,6 +424,7 @@
         "BCFactoryGuis.MENU_AUTOWORK_BENCH_ITEM.get(),GuiAutoCraftItems::new",
         "BCFactoryGuis.MENU_HEAT_EXCHANGE.get(),ScreenHeatExchange::new",
         "BCFactoryGuis.MENU_CHUTE.get(),GuiChute::new",
+        "BCFactoryGuis.MENU_HOPPER.get(),GuiHopper::new",
         "BCFactoryGuis.MENU_TANK.get(),GuiTank::new"
       ],
       "robotics/BCRoboticsClientGuis.java": [
@@ -572,6 +575,7 @@
         "BCFactoryGuis.MENU_AUTOWORK_BENCH_ITEM.get(),GuiAutoCraftItems::new",
         "BCFactoryGuis.MENU_HEAT_EXCHANGE.get(),ScreenHeatExchange::new",
         "BCFactoryGuis.MENU_CHUTE.get(),GuiChute::new",
+        "BCFactoryGuis.MENU_HOPPER.get(),GuiHopper::new",
         "BCFactoryGuis.MENU_TANK.get(),GuiTank::new"
       ],
       "robotics/BCRoboticsClientGuis.java": [
