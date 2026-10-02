@@ -8,6 +8,7 @@ import buildcraft.factory.block.BlockChute;
 import buildcraft.factory.block.BlockDistiller;
 import buildcraft.factory.block.BlockFloodGate;
 import buildcraft.factory.block.BlockHeatExchange;
+import buildcraft.factory.block.BlockHopper;
 import buildcraft.factory.block.BlockMiningWell;
 import buildcraft.factory.block.BlockPump;
 import buildcraft.factory.block.BlockTank;
@@ -18,6 +19,7 @@ import buildcraft.factory.tile.TileChute;
 import buildcraft.factory.tile.TileDistiller_BC8;
 import buildcraft.factory.tile.TileFloodGate;
 import buildcraft.factory.tile.TileHeatExchange;
+import buildcraft.factory.tile.TileHopper;
 import buildcraft.factory.tile.TileMiningWell;
 import buildcraft.factory.tile.TilePump;
 import buildcraft.factory.tile.TileTank;
@@ -33,6 +35,7 @@ public class BCFactoryBlocks {
     public static final BCRegistryEntry<BlockPump> PUMP_BLOCK = BLOCKS.register("pump", BlockPump::new);
     public static final BCRegistryEntry<BlockTank> TANK_BLOCK = BLOCKS.register("tank", BlockTank::new);
     public static final BCRegistryEntry<BlockChute> CHUTE_BLOCK = BLOCKS.register("chute", BlockChute::new);
+    public static final BCRegistryEntry<BlockHopper> HOPPER_BLOCK = BLOCKS.register("hopper", BlockHopper::new);
     public static final BCRegistryEntry<BlockFloodGate> FLOOD_GATE_BLOCK =
         BLOCKS.register("flood_gate", BlockFloodGate::new);
     public static final BCRegistryEntry<BlockTube> TUBE_BLOCK = BLOCKS.register("tube", BlockTube::new);
@@ -70,6 +73,9 @@ public class BCFactoryBlocks {
     public static final BCRegistryEntry<BlockEntityType<TileChute>> ENTITYBLOCKCHUTE =
         BLOCK_ENTITYS.register("entity_chute",
             () -> BlockEntityType.Builder.of(TileChute::new, CHUTE_BLOCK.get()).build(null));
+    public static final BCRegistryEntry<BlockEntityType<TileHopper>> ENTITYBLOCKHOPPER =
+        BLOCK_ENTITYS.register("entity_hopper",
+            () -> BlockEntityType.Builder.of(TileHopper::new, HOPPER_BLOCK.get()).build(null));
 
     static void registry(BCRegistryBinder bus) {
         BLOCKS.register(bus);
