@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 
@@ -26,6 +27,22 @@ public class BCFactoryRecipesProvider extends RecipeProvider {
             .define('g', Items.GLASS)
             .unlockedBy("has_" + Items.GLASS.getDescriptionId(), TriggerInstance.hasItems(Items.GLASS))
             .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BCFactoryItems.HOPPER_BLOCK_ITEM.get())
+            .pattern("ici")
+            .pattern(" g ")
+            .define('i', Items.IRON_INGOT)
+            .define('c', Items.CHEST)
+            .define('g', BCCoreItems.GEAR_STONE.get())
+            .unlockedBy("has_" + BCCoreItems.GEAR_STONE.getId().getPath(),
+                TriggerInstance.hasItems(BCCoreItems.GEAR_STONE.get()))
+            .save(writer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BCFactoryItems.HOPPER_BLOCK_ITEM.get())
+            .requires(Items.HOPPER)
+            .requires(BCCoreItems.GEAR_STONE.get())
+            .unlockedBy("has_" + Items.HOPPER.getDescriptionId(), TriggerInstance.hasItems(Items.HOPPER))
+            .save(writer, new ResourceLocation(BCFactory.MODID, "hopper_from_vanilla"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BCFactoryItems.MINING_WELL_BLOCK_ITEM.get())
             .pattern("iri")
