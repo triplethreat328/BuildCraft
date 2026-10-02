@@ -6,6 +6,7 @@ import buildcraft.lib.platform.registry.BCDeferredRegister;
 import buildcraft.factory.client.gui.MenuHeatExchange;
 import buildcraft.factory.container.ContainerAutoCraftItems;
 import buildcraft.factory.container.ContainerChute;
+import buildcraft.factory.container.ContainerHopper;
 import buildcraft.factory.container.ContainerTank;
 import buildcraft.lib.gui.BCContainerFactory;
 import net.minecraft.world.inventory.MenuType;
