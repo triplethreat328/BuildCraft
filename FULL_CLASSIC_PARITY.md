@@ -198,3 +198,26 @@ Presence in the source tree does **not** mean parity is assumed. Every subsystem
 8. Verify Silicon/lasers/tables.
 9. Verify Robotics/Requester/Zone Planner.
 10. Finish visual, persistence, dedicated-server and compatibility acceptance.
+
+## Classic 7.1.27 restoration baseline
+
+The final 1.20.1 Forge target is not limited to the active BC8/1.12.2 registration set. For the user's
+"full classic BuildCraft" target, parity is the union of:
+
+- active BuildCraft 8.x / 1.12.2 content and behaviour, and
+- player-facing BuildCraft 7.1.27 content that was retired or replaced during BC8, where it can coexist without
+  breaking the BC8 implementation.
+
+Verified 7.1.x player-facing content that is not currently registered in the 1.20.1 target includes:
+
+- Factory: classic Refinery and BuildCraft Hopper.
+- Silicon: Packager and Package item.
+- Transport: Emerald item, fluid and power pipe families.
+- Core/utilities: classic Build Tool block, Tablet and Debugger require a separate player-facing audit before
+  deciding their modern placement/recipes.
+- Legacy factory "plain pipe" requires behaviour mapping against the BC8 Tube before deciding whether it is a
+  distinct restoration or a renamed/reworked equivalent.
+
+Do not remove BC8 replacements such as Distiller and Heat Exchange when restoring older machines; classic machines
+should coexist so the finished port contains the broader classic BuildCraft experience.
+
