@@ -1,0 +1,39 @@
+name: Classic parity maintenance
+
+on:
+  push:
+    branches:
+      - full-classic-parity
+    paths:
+      - '.github/workflows/classic-parity-maintenance.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: full-classic-parity
+      - name: Accept restored hopper loot table
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/validate-behavior-parity.py')
+          text = path.read_text(encoding='utf-8')
+          old_guard = 'if len(baseline_ids) != 31:\n        fail(f"1.19.2-forge: expected 31 loot tables, found {len(baseline_ids)}")'
+          new_guard = 'if len(baseline_ids) != 32:\n        fail(f"1.19.2-forge: expected 32 loot tables, found {len(baseline_ids)}")'
+          if old_guard not in text:
+              raise SystemExit('loot baseline guard did not match expected source')
+          text = text.replace(old_guard, new_guard, 1)
+          text = text.replace('228/227 recipes, 31 loot tables and 191 advancements validated',
+                              '228/227 recipes, 32 loot tables and 191 advancements validated', 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/validate-behavior-parity.py
+          git commit -m "Accept restored hopper loot-table parity"
+          git push origin HEAD:full-classic-parity
