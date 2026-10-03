@@ -21,6 +21,8 @@ public class BCFactoryGuis {
         MENUS.register("menu.heat_exchange", () -> BCContainerFactory.create(MenuHeatExchange::new));
     public static final BCRegistryEntry<MenuType<ContainerChute>> MENU_CHUTE =
         MENUS.register("menu.chute", () -> BCContainerFactory.create(ContainerChute::new));
+    public static final BCRegistryEntry<MenuType<ContainerHopper>> MENU_HOPPER =
+        MENUS.register("menu.hopper", () -> BCContainerFactory.create(ContainerHopper::new));
     public static final BCRegistryEntry<MenuType<ContainerTank>> MENU_TANK =
         MENUS.register("menu.tank", () -> BCContainerFactory.create(ContainerTank::new));
 
