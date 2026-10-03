@@ -15,6 +15,7 @@ public class BCFactoryItems {
     public static final BCRegistryEntry<BlockItem> PUMP_BLOCK_ITEM = ITEMS.register("pump", () -> new BlockItem(BCFactoryBlocks.PUMP_BLOCK.get(),new Item.Properties().tab(BCCore.BUILDCRAFT_TAB)));
     public static final BCRegistryEntry<BlockItem> TANK_BLOCK_ITEM = ITEMS.register("tank", () -> new BlockItem(BCFactoryBlocks.TANK_BLOCK.get(),new Item.Properties().tab(BCCore.BUILDCRAFT_TAB)));
     public static final BCRegistryEntry<BlockItem> CHUTE_BLOCK_ITEM = ITEMS.register("chute", () -> new BlockItem(BCFactoryBlocks.CHUTE_BLOCK.get(),new Item.Properties().tab(BCCore.BUILDCRAFT_TAB)));
+    public static final BCRegistryEntry<BlockItem> HOPPER_BLOCK_ITEM = ITEMS.register("hopper", () -> new BlockItem(BCFactoryBlocks.HOPPER_BLOCK.get(),new Item.Properties().tab(BCCore.BUILDCRAFT_TAB)));
     public static final BCRegistryEntry<BlockItem> FLOOD_GATE_BLOCK_ITEM = ITEMS.register("flood_gate", () -> new BlockItem(BCFactoryBlocks.FLOOD_GATE_BLOCK.get(),new Item.Properties().tab(BCCore.BUILDCRAFT_TAB)));
     public static final BCRegistryEntry<BlockItem> MINING_WELL_BLOCK_ITEM = ITEMS.register("mining_well", () -> new BlockItem(BCFactoryBlocks.MINING_WELL_BLOCK.get(),new Item.Properties().tab(BCCore.BUILDCRAFT_TAB)));
     public static final BCRegistryEntry<BlockItem> DISTILLER_BLOCK_ITEM = ITEMS.register("distiller", () -> new BlockItem(BCFactoryBlocks.DISTILLER_BLOCK.get(),new Item.Properties().tab(BCCore.BUILDCRAFT_TAB)));
