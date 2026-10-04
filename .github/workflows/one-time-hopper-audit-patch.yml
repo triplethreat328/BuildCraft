@@ -18,7 +18,7 @@ jobs:
           ref: full-classic-parity
           fetch-depth: 0
 
-      - name: Patch canonical Hopper audit entries
+      - name: Patch and validate canonical Hopper audit entries
         shell: bash
         run: |
           python - <<'PY'
@@ -45,16 +45,48 @@ jobs:
                   'kind': 'BlockItem',
               })
               ledger.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+
+          lang = Path('source-shared/src/main/resources/assets/buildcraft/lang/en_us.json')
+          text = lang.read_text()
+          if '"item.buildcraftfactory.hopper"' not in text:
+              needle = '  "item.buildcraftfactory.heat_exchange": "Heat Exchanger",\n'
+              assert needle in text, 'Could not find language insertion point'
+              text = text.replace(
+                  needle,
+                  needle + '  "item.buildcraftfactory.hopper": "Hopper",\n',
+                  1,
+              )
+              lang.write_text(text)
           PY
+
           git diff --check
-          python scripts/tests/test_gui_regressions.py
+          python scripts/source_layout.py --variant modern --clean materialize
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          java = Path('source-families/modern/src/main/java/buildcraft/lib/compat/ItemNameKeys121111.java').read_text()
+          mapping = dict(re.findall(r'case "([^"]+)" -> "(item\.[^"]+)";', java))
+          assert mapping.get('buildcraftfactory:hopper') == 'item.buildcraftfactory.hopper'
+
+          ledger = json.loads(Path('scripts/tests/item_names_12111.json').read_text())
+          matches = [x for x in ledger if x.get('id') == 'buildcraftfactory:hopper']
+          assert len(matches) == 1
+          assert matches[0]['key'] == 'item.buildcraftfactory.hopper'
+          assert matches[0]['name_en_us'] == 'Hopper'
+
+          lang = json.loads(Path('build/source-sets/modern/resources/assets/buildcraft/lang/en_us.json').read_text())
+          assert lang.get('item.buildcraftfactory.hopper') == 'Hopper'
+          print('Hopper canonical audit coverage validated')
+          PY
 
       - name: Commit exact audit update
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add source-families/modern/src/main/java/buildcraft/lib/compat/ItemNameKeys121111.java scripts/tests/item_names_12111.json
+          git add source-families/modern/src/main/java/buildcraft/lib/compat/ItemNameKeys121111.java scripts/tests/item_names_12111.json source-shared/src/main/resources/assets/buildcraft/lang/en_us.json
           if ! git diff --cached --quiet; then
             git commit -m "Fix Hopper item-name audit coverage"
             git push origin HEAD:full-classic-parity
