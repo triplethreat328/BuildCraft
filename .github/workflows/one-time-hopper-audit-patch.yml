@@ -1,0 +1,77 @@
+name: One-time Hopper audit patch
+
+on:
+  push:
+    branches:
+      - full-classic-parity
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: full-classic-parity
+          fetch-depth: 0
+
+      - name: Patch canonical Hopper audit entries
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          java = Path('source-families/modern/src/main/java/buildcraft/lib/compat/ItemNameKeys121111.java')
+          text = java.read_text()
+          needle = '            case "buildcraftfactory:heat_exchange" -> "item.buildcraftfactory.heat_exchange";\n            case "buildcraftfactory:mining_well" -> "item.buildcraftfactory.mining_well";'
+          replacement = '            case "buildcraftfactory:heat_exchange" -> "item.buildcraftfactory.heat_exchange";\n            case "buildcraftfactory:hopper" -> "item.buildcraftfactory.hopper";\n            case "buildcraftfactory:mining_well" -> "item.buildcraftfactory.mining_well";'
+          if 'case "buildcraftfactory:hopper"' not in text:
+              assert needle in text, 'Could not find Java insertion point'
+              java.write_text(text.replace(needle, replacement, 1))
+
+          ledger = Path('scripts/tests/item_names_12111.json')
+          text = ledger.read_text()
+          needle = '''  {
+            "id": "buildcraftfactory:heat_exchange",
+            "key": "item.buildcraftfactory.heat_exchange",
+            "name_en_us": "Heat Exchanger",
+            "source": "buildcraft/factory/BCFactoryItems.java",
+            "kind": "BlockItem"
+          },
+          {
+            "id": "buildcraftfactory:mining_well",'''
+          replacement = '''  {
+            "id": "buildcraftfactory:heat_exchange",
+            "key": "item.buildcraftfactory.heat_exchange",
+            "name_en_us": "Heat Exchanger",
+            "source": "buildcraft/factory/BCFactoryItems.java",
+            "kind": "BlockItem"
+          },
+          {
+            "id": "buildcraftfactory:hopper",
+            "key": "item.buildcraftfactory.hopper",
+            "name_en_us": "Hopper",
+            "source": "buildcraft/factory/BCFactoryItems.java",
+            "kind": "BlockItem"
+          },
+          {
+            "id": "buildcraftfactory:mining_well",'''
+          if '"id": "buildcraftfactory:hopper"' not in text:
+              assert needle in text, 'Could not find JSON insertion point'
+              ledger.write_text(text.replace(needle, replacement, 1))
+          PY
+          git diff --check
+
+      - name: Commit exact audit update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add source-families/modern/src/main/java/buildcraft/lib/compat/ItemNameKeys121111.java scripts/tests/item_names_12111.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Fix Hopper item-name audit coverage"
+            git push origin HEAD:full-classic-parity
+          fi
