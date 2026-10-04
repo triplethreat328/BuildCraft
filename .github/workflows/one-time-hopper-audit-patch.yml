@@ -22,6 +22,7 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
+          import json
           from pathlib import Path
 
           java = Path('source-families/modern/src/main/java/buildcraft/lib/compat/ItemNameKeys121111.java')
@@ -33,37 +34,20 @@ jobs:
               java.write_text(text.replace(needle, replacement, 1))
 
           ledger = Path('scripts/tests/item_names_12111.json')
-          text = ledger.read_text()
-          needle = '''  {
-            "id": "buildcraftfactory:heat_exchange",
-            "key": "item.buildcraftfactory.heat_exchange",
-            "name_en_us": "Heat Exchanger",
-            "source": "buildcraft/factory/BCFactoryItems.java",
-            "kind": "BlockItem"
-          },
-          {
-            "id": "buildcraftfactory:mining_well",'''
-          replacement = '''  {
-            "id": "buildcraftfactory:heat_exchange",
-            "key": "item.buildcraftfactory.heat_exchange",
-            "name_en_us": "Heat Exchanger",
-            "source": "buildcraft/factory/BCFactoryItems.java",
-            "kind": "BlockItem"
-          },
-          {
-            "id": "buildcraftfactory:hopper",
-            "key": "item.buildcraftfactory.hopper",
-            "name_en_us": "Hopper",
-            "source": "buildcraft/factory/BCFactoryItems.java",
-            "kind": "BlockItem"
-          },
-          {
-            "id": "buildcraftfactory:mining_well",'''
-          if '"id": "buildcraftfactory:hopper"' not in text:
-              assert needle in text, 'Could not find JSON insertion point'
-              ledger.write_text(text.replace(needle, replacement, 1))
+          data = json.loads(ledger.read_text())
+          if not any(item['id'] == 'buildcraftfactory:hopper' for item in data):
+              index = next(i + 1 for i, item in enumerate(data) if item['id'] == 'buildcraftfactory:heat_exchange')
+              data.insert(index, {
+                  'id': 'buildcraftfactory:hopper',
+                  'key': 'item.buildcraftfactory.hopper',
+                  'name_en_us': 'Hopper',
+                  'source': 'buildcraft/factory/BCFactoryItems.java',
+                  'kind': 'BlockItem',
+              })
+              ledger.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
           PY
           git diff --check
+          python scripts/tests/test_gui_regressions.py
 
       - name: Commit exact audit update
         shell: bash
